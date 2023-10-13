@@ -1,5 +1,5 @@
 """
-URL configuration for blog project.
+URL configuration for django_test project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
@@ -12,11 +12,15 @@ Class-based views
     2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
 Including another URLconf
     1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+    2. Add a URL to urlpatterns:  path('todolist/', include('todolist.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from django_test.users.views import RegistrUserView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api-auth', include('rest_framework.urls')),
+    path('auth/', include('djoser.urls')),
+    path('registr/', RegistrUserView.as_view(), name='registr'),
 ]
