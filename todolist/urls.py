@@ -15,14 +15,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('todolist/', include('todolist.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from todolist.todo import views
-from django.views.generic.base import RedirectView
-from django.conf.urls import include
+from django.urls import path, include
+from todolist import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('todo/', views.index, name='home'),
+    #path('todo/', views.index, name='home'),
     path('api-auth/', include('rest_framework.urls')),
-    #path('^category/', category, name="Category"),
+    path('api/v1/', include('todo.urls')),
+
 ]

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html leng="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title>Список дел</title>
+    </head> 
+    <body>
+        {% for todo in Todolist %}
+        <li>
+            <span> {{todo.status}} </span>
+            <span> {{todo.description}} </span>
+        </li>
+            
+        {% endfor %}
+</html>
