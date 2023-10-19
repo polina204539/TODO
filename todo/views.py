@@ -25,8 +25,7 @@ class TodoDetailView(APIView):
         todo = Todolist.objects.get(id=id)
         todo_s = TodoModelSerializer(todo)
         return Response(todo_s.data)
-    
-    
+        
     def put(self, request, *args, **kwargs):
         id = kwargs.get("id", None)
         if not id:

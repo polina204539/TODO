@@ -56,7 +56,10 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'todolist.urls'
 
-REST_FRAMEWORK = { 'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema' }
+REST_FRAMEWORK = { 
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
+    'DEFAULT_PERMISSION_CLASSES': ['rest_framework.permissions.IsAuthenticated'] 
+    }
 
 TEMPLATES = [
     {
